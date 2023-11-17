@@ -34,9 +34,9 @@ const SideBar = () => {
 
   ];
 
-  let containerClass = 'bg-dark-purple h-screen p-5 pt-8';
+  let containerClass = 'bg-dark-black h-[1640px] p-5 pt-8';
   if (open) {
-    containerClass += ' w-72';
+    containerClass += ' w-[17rem]'; 
   } else {
     containerClass += ' w-20';
   }
@@ -61,12 +61,12 @@ const SideBar = () => {
         <input type="search" placeholder='Search' className={`text-base bg-transparent w-full text-white focus:outline-none ${!open && 'hidden'}`} />
        
         </div>
-        <ul  className=''>
+        <ul  className='pb-3 pt-3 '>
           {Menus.map((menuitem,index) => (
             <>
             
-          <li className = 'text-gray-50  flex items-center text-sm gap-x-4 cursor-pointer p-2 hover:bg-light-white mt-2'key={index}>
-            <span className='text-white block float-left text-2xl'> <RiDashboardFill></RiDashboardFill></span>
+          <li className = 'text-gray-50  flex pl-[30px] items-center text-sm gap-x-4 cursor-pointer p-2 hover:bg-light-white mt-2 rounded-lg 'key={index}>
+            <span className='text-white block float-left text-4xl'> <RiDashboardFill></RiDashboardFill></span>
             <span className={`${!open && 'hidden '}`}>{menuitem.tittle}</span></li>
             
             </>
