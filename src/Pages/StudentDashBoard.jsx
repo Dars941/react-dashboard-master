@@ -1,5 +1,5 @@
 
-import SideBar from '../Components/SideBar'
+import SideBar from '../Components/SideBar/StudentSideBar'
 
 const StudentDashBoard = () => {
   return (
@@ -10,4 +10,4 @@ const StudentDashBoard = () => {
   )
 }
 
-export default StudentDashBoard
+export default StudentDashBoard;  
