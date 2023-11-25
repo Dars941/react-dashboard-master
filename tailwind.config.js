@@ -8,6 +8,11 @@ export default {
     extend: {
       colors:{ 
         'dark-purple':'#081A51',
+        'text-hover-bg':'#DEE6FF',
+        'dashboard-theme-light':'#EEF2FF',
+        'bell-color':'#456FF6',
+        'text-hover-color' :'#456FF6',
+        'light-grey':'#9297AA',
         'white' : '#FFFFFF',
         'light-white':'rgba(255,255,255,0.18)',
         'dark-black' : '#1A202C',

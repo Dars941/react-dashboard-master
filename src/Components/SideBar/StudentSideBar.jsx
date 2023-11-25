@@ -61,11 +61,11 @@ const SideBar = () => {
         <input type="search" placeholder='Search' className={`text-base bg-transparent w-full text-white focus:outline-none ${!open && 'hidden'}`} />
        
         </div>
-        <ul  className=''>
+        <ul  className=''> 
           {Menus.map((menuitem,index) => (
             <>
             
-          <li className = 'text-gray-50  flex items-center text-sm gap-x-4 cursor-pointer p-2 hover:bg-light-white mt-2'key={index}>
+          <li className = 'text-gray-500  flex items-center text-sm gap-x-4 cursor-pointer p-2 hover:bg-light-white mt-2'key={index}>
             <span className='text-white block float-left text-2xl'> <RiDashboardFill></RiDashboardFill></span>
             <span className={`${!open && 'hidden '}`}>{menuitem.tittle}</span></li>
             

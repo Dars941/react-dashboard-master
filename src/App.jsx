@@ -3,16 +3,21 @@ import SideBar from './Components/SideBar/AdminSideBar';
 import Staff from './Components/AdminDashBoardItem/Staff';
 import Department from './Components/AdminDashBoardItem/Department';
 import Login from './Pages/Login';
+import NavBar from './Components/NavBar';
 
 const App = () => {
   const currentUser = true;
 
   const Layout = () => {
     return (
+      <>
+      <NavBar></NavBar>
       <div className='flex'>
-        <SideBar />
-        <Outlet />
-      </div>
+       
+       <SideBar />
+       <Outlet />
+     </div>
+      </>
     );
   };
 

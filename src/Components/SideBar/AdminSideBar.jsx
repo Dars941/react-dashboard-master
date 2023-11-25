@@ -1,8 +1,8 @@
 import { useState } from 'react';
 import { AiOutlineArrowLeft } from 'react-icons/ai';
-import { PiStudentBold } from 'react-icons/pi';
+// import { PiStudentBold } from 'react-icons/pi';
 import { RiDashboardFill } from 'react-icons/ri';
-import { BsSearch } from 'react-icons/bs';
+// import { BsSearch } from 'react-icons/bs';
 import { TiGroupOutline } from "react-icons/ti";
 import { FcDepartment } from "react-icons/fc";
 import { FaPersonChalkboard } from "react-icons/fa6";
@@ -35,7 +35,7 @@ const SideBar = () => {
 
   const Icons = [
     <TiGroupOutline key='Staff'/>,
-    <FcDepartment key='Department'/>,
+    <FcDepartment className = 'text-red-500' key='Department'/>,
     <FaPersonChalkboard key="Staff Advisor" />,
     <PiStudent key="student" />,
     <IoIosLogOut key="logout" />,
@@ -47,13 +47,14 @@ const SideBar = () => {
     
   ];
 
-  let containerClass = 'bg-red-300 h-[2400px] p-5 pt-8 fixed top-0 left-0';
-  if (open) {
-    containerClass += ' w-[17rem]';
-  } else {
-    containerClass += ' w-20';
-  }
-  containerClass += ' relative duration-300';
+  let containerClass = 'bg-white p-5 pt-8 fixed top-0 left-0 overflow-y-auto';
+if (open) {
+  containerClass += ' w-[17rem] max-h-screen';
+} else {
+  containerClass += ' w-20';
+}
+containerClass += ' relative duration-300';
+
 
   return (
     <div className="flex">
@@ -65,25 +66,25 @@ const SideBar = () => {
           className={`sm : block bg-white text-dark-purple text-3xl rounded-full absolute md : hidden -right-3 top-9 border border-dark-purple cursor-pointer ${!open && 'rotate-180'}`}
         ></AiOutlineArrowLeft>
         <div></div>
-        <div className="flex gap-5 items-center ">
+        {/* <div className="flex gap-5 items-center ">
           <PiStudentBold className="bg-yellow-400 text-red text-5xl"></PiStudentBold>
-          <div className={`text-3xl text-white ${!open && 'hidden'} duration-300`}> Admin </div>
-        </div>
-        <div className="flex items-center rounded-md bg-light-white mt-6 px-2.5 py-2">
+          <div className={`text-3xl text-white ${!open && 'hidden'} duration-300 text-[#456FF6] text-5xl`}> Admin </div>
+        </div> */}
+        {/* <div className="flex items-center rounded-md bg-light-white mt-6 px-2.5 py-2">
           <BsSearch className=" text-lg block float-left cursor-pointer mr-2.5"></BsSearch>
           <input
             type="search"
             placeholder="Search"
             className={`text-base bg-transparent w-full text-white focus:outline-none ${!open && 'hidden'}`}
           />
-        </div>
+        </div> */}
         <ul className="pb-3 pt-3 ">
           {Menus.map((menuitem, index) => (
             <li
               key={index}
-              className="text-gray-50  flex pl-[30px] items-center text-sm gap-x-4 cursor-pointer p-2 hover:bg-light-white mt-2 rounded-lg"
+              className="text-light-grey  flex pl-[30px] items-center text-sm gap-x-4 cursor-pointer p-2 hover:bg-text-hover-bg mt-2 rounded-lg hover:text-text-hover-color"
             >
-              <span className="text-white block float-left text-4xl">{Icons[index]}</span>
+              <span className="text-l block float-left text-4xl">{Icons[index]}</span>
               <Link to={`/${menuitem.title.toLowerCase()}`} className={`${!open && 'hidden '}`}>{menuitem.title}</Link>
             </li>
           ))}
