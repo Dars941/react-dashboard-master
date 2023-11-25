@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 
 const Login = () => {
   return (
-    <div  className='text-white h-[100vh] flex justify-center items-center bg-cover'
+    <div  className='text-white h-[100vh] w-full flex justify-center items-center bg-cover'
     style={{
       backgroundImage: `url('https://images.pexels.com/photos/2422915/pexels-photo-2422915.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1')`, 
       backgroundRepeat:'no-repeat',
@@ -30,7 +30,7 @@ const Login = () => {
           </div>
          
         </div>
-        <Link to='/student-dashboard'>
+        <Link to='/'>
         <button className='py-2 px-4 rounded-[50px] bg-black text-white text-center backdrop-filter backdrop-blur-sm bg-opacity-30' type='submit'>Login</button>
         </Link>
         <div className='mb-3'>

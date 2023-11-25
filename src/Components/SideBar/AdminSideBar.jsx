@@ -14,8 +14,8 @@ const SideBar = () => {
   const [open, setOpen] = useState(true);
 
   const Menus = [
-    { title: 'Staff' },
-    { title: 'Department' },
+    { title: 'staff' },
+    { title: 'department' },
     { title: 'Staff advisor' },
     // {
     //   title: '',
@@ -47,7 +47,7 @@ const SideBar = () => {
     
   ];
 
-  let containerClass = 'bg-dark-black h-full p-5 pt-8 fixed top-0 left-0';
+  let containerClass = 'bg-red-300 h-[2400px] p-5 pt-8 fixed top-0 left-0';
   if (open) {
     containerClass += ' w-[17rem]';
   } else {

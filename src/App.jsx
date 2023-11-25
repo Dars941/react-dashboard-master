@@ -1,20 +1,56 @@
-
+import { Navigate, Outlet, RouterProvider, createBrowserRouter } from 'react-router-dom';
+import SideBar from './Components/SideBar/AdminSideBar';
+import Staff from './Components/AdminDashBoardItem/Staff';
+import Department from './Components/AdminDashBoardItem/Department';
 import Login from './Pages/Login';
-import { Route, Routes } from 'react-router-dom';
-import Register from './Pages/Register';
-import StudentDashBoard from './Pages/StudentDashBoard';
-import AdminDashBoard from './Pages/AdminDashBoard';
 
 const App = () => {
+  const currentUser = true;
+
+  const Layout = () => {
+    return (
+      <div className='flex'>
+        <SideBar />
+        <Outlet />
+      </div>
+    );
+  };
+
+  // eslint-disable-next-line react/prop-types
+  const ProtectedRoute = ({ element }) => {
+    return currentUser ? (
+      element
+    ) : (
+      <Navigate to="/login" />
+    );
+  };
+
+  const router = createBrowserRouter([
+    {
+      path: '/',
+      element: (
+        <ProtectedRoute element={<Layout />} />
+      ),
+      children: [
+        {
+          path: '/staff',
+          element: <Staff />,
+        },
+        {
+          path: '/department',
+          element: <Department />,
+        },
+      ],
+    },
+    {
+      path: '/login',
+      element: <Login />,
+    },
+  ]);
+
   return (
-    <div >
-      <Routes>
-        <Route path='/login' element = {<Login/>}/>
-        <Route path='/register' element = {<Register/>}/>
-        <Route path='/student-dashboard' element = {<StudentDashBoard/>}/>
-        <Route path='/Admin-dashboard' element = {<AdminDashBoard/>}/>
-        
-      </Routes>
+    <div>
+      <RouterProvider router={router}></RouterProvider>
     </div>
   );
 };
