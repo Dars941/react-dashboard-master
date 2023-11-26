@@ -100,7 +100,7 @@ const Student = () => {
               <input
                 type="search"
                 placeholder="Search"
-                className={`text-base bg-transparent    w-[12rem] text-white focus:outline-none ${!open && 'hidden'}`}
+                className={`text-base bg-transparent    w-[12rem] text-grey focus:outline-none ${!open && 'hidden'}`}
               />
             </div>
             <div className='bg-text-hover-color W-[60px ]h-[40px] rounded-lg mt-1 text-center p-2 text-[20px] text-white font-normal'> 
