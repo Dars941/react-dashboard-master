@@ -2,7 +2,7 @@ import { PiStudentBold } from 'react-icons/pi';
 
 const NavBar = () => {
   return (
-    <div className="bg-red  w-full h-[90px]">
+    <div className="bg-red w-[1500px]   h-[90px] sm: ">
         <div className="flex justify-between">
         <div className=" my-[30px] mx-[30px] flex gap-5 items-center ">
           <PiStudentBold className="bg-text-hover-bg text-red text-5xl"></PiStudentBold>
