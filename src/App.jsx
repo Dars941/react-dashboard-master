@@ -1,62 +1,33 @@
-import { Navigate, Outlet, RouterProvider, createBrowserRouter } from 'react-router-dom';
-import SideBar from './Components/SideBar/AdminSideBar';
+/* eslint-disable react/prop-types */
+import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
+import AdminDashboard from './Pages/AdminDashBoard';
+import Login from './Pages/Login';
 import Staff from './Components/AdminDashBoardItem/Staff';
 import Department from './Components/AdminDashBoardItem/Department';
-import Login from './Pages/Login';
-import NavBar from './Components/NavBar';
+import Student from './Components/AdminDashBoardItem/Student';
 
 const App = () => {
   const currentUser = true;
 
-  const Layout = () => {
-    return (
-      <>
-      <NavBar></NavBar>
-      <div className='flex'>
-       
-       <SideBar />
-       <Outlet />
-     </div>
-      </>
-    );
-  };
-
-  // eslint-disable-next-line react/prop-types
   const ProtectedRoute = ({ element }) => {
-    return currentUser ? (
-      element
-    ) : (
-      <Navigate to="/login" />
-    );
+    return currentUser ? element : <Navigate to="/login" />;
   };
-
-  const router = createBrowserRouter([
-    {
-      path: '/',
-      element: (
-        <ProtectedRoute element={<Layout />} />
-      ),
-      children: [
-        {
-          path: '/staff',
-          element: <Staff />,
-        },
-        {
-          path: '/department',
-          element: <Department />,
-        },
-      ],
-    },
-    {
-      path: '/login',
-      element: <Login />,
-    },
-  ]);
 
   return (
-    <div>
-      <RouterProvider router={router}></RouterProvider>
-    </div>
+    <Router>
+      <Routes>
+        <Route
+          path="/"
+          exact element={<ProtectedRoute element={<AdminDashboard />} />}
+        >
+          <Route path="/" element={<Staff />} />
+          <Route path="/staff" element={<Staff />} />
+          <Route path="/department" element={<Department />} />
+          <Route path="/student" element={<Student />} />
+        </Route>
+        <Route path="/login" element={<Login />} />
+      </Routes>
+    </Router>
   );
 };
 
